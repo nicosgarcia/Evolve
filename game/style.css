@@ -1,0 +1,55 @@
+#titulo {
+    text-align: center;
+}
+
+#score {
+    text-align: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+#evolve {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: black;
+  color: white;
+  border: black;
+}
+
+#evolve:hover {
+  background-color: #1A1A2A;
+  color: white;
+}
+
+#evolve:active {
+  padding: 12px 22px
+}
+
+.upgrades {
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#primeiraEv {
+    visibility: hidden;
+    pointer-events: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+
+
