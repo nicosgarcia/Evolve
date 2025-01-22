@@ -42,7 +42,8 @@
     align-items: center;
 }
 
-#primeiraEv {
+#primeiroUp, #segundoUp {
+    position: fixed;
     visibility: hidden;
     pointer-events: none;
     padding: 10px 20px;
@@ -52,4 +53,24 @@
     border-color: black;
 }
 
+.evolutions {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#primeiraEv {
+    position: fixed;
+    visibility: hidden;
+    pointer-events: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: white;
+    color: black;
+    border-color: black;
+}
