@@ -1,88 +1,80 @@
 let contador = 0;
 let multiplicador = 0;
 let transcender = 1;
+let acrescentador = 0;
+let intervalo = null;
 
+const audio = document.getElementById("click");
+const specialButton = document.getElementById("primeiroUp");
+const specialButtonTranscend = document.getElementById("segundoUp");
+const specialButtonEvolution = document.getElementById("primeiraEv");
 
-
-let specialButton = document.getElementById("primeiroUp");
-let specialButtonTranscend = document.getElementById("segundoUp");
-let specialButtonEvolution = document.getElementById("primeiraEv");
-
-let pontosEvolution = 50;
 let pontosParaAparecer = 10;
+let pontosEvolution = 50;
 let pontosTranscend = 1000;
 
+audio.volume = 0.5;
+
 function coletar() {
+  contador = contador + 1 + (multiplicador * transcender);
+  document.getElementById("score").innerText = contador;
 
-    contador = contador + 1 + (multiplicador * transcender);
-    document.getElementById("score").innerText = contador;
+  if (contador >= pontosParaAparecer) {
+    specialButton.style.visibility = "visible";
+    specialButton.style.pointerEvents = "auto";
+  }
 
-    if (contador >= pontosParaAparecer) {
+  if (contador >= pontosEvolution) {
+    specialButtonEvolution.style.visibility = "visible";
+    specialButtonEvolution.style.pointerEvents = "auto";
+  }
 
-        specialButton.style.visibility = "visible";
-        specialButton.style.pointerEvents = "auto";
-
-    }
-
-    if (contador >= pontosEvolution) {
-
-        specialButtonEvolution.style.visibility = "visible";
-        specialButtonEvolution.style.pointerEvents = "auto";
-
-    }
-
-    if (contador >= pontosTranscend) {
-
-        specialButtonTranscend.style.visibility = "visible";
-        specialButtonTranscend.style.pointerEvents = "auto";
-
-    }
+  if (contador >= pontosTranscend) {
+    specialButtonTranscend.style.visibility = "visible";
+    specialButtonTranscend.style.pointerEvents = "auto";
+  }
 }
-
-// Primeira Ev vai multiplicar o quanto o seu click vale e deletar o botão.
 
 function primeiroUp() {
 
-    multiplicador++;
-    contador = parseInt(contador - pontosParaAparecer)
-    document.getElementById("score").innerText = contador;
+  audio.play();
 
-    pontosParaAparecer = pontosParaAparecer * 1.5;
+  multiplicador++;
+  contador = contador - pontosParaAparecer;
+  document.getElementById("score").innerText = contador;
 
-    specialButton.style.visibility = "hidden";
-    specialButton.style.pointerEvents = "none";
-
+  pontosParaAparecer = Math.ceil(pontosParaAparecer * 1.5);
+  specialButton.style.visibility = "hidden";
+  specialButton.style.pointerEvents = "none";
 }
 
 function segundoUp() {
 
-    transcender = transcender + 2;
-    contador = parseInt(contador - (pontosTranscend/2))
-    document.getElementById("score").innerText = contador;
+  audio.play();
 
-    pontosTranscend = pontosTranscend * 1.5;
+  transcender = transcender + 2;
+  contador = contador - Math.floor(pontosTranscend / 2);
+  document.getElementById("score").innerText = contador;
 
-    specialButtonTranscend.style.visibility = "hidden";
-    specialButtonTranscend.style.pointerEvents = "none";
-
+  pontosTranscend = Math.ceil(pontosTranscend * 1.5);
+  specialButtonTranscend.style.visibility = "hidden";
+  specialButtonTranscend.style.pointerEvents = "none";
 }
-
-acrescentador = 0;
 
 function primeiraEv() {
 
-    acrescentador++;
-    pontosEvolution = parseInt(pontosEvolution * 1.75);
+  audio.play();
 
-    if (intervalo === null) {
-        setInterval(() => {
+  acrescentador++;
+  pontosEvolution = Math.ceil(pontosEvolution * 1.75);
 
-            contador = contador + acrescentador;
-            document.getElementById("score").innerText = contador;
+  if (intervalo === null) {
+    intervalo = setInterval(() => {
+      contador = contador + acrescentador;
+      document.getElementById("score").innerText = contador;
+    }, 1000);
+  }
 
-        }, 1000);
-    }
-
-    specialButtonEvolution.style.visibility = "hidden";
-    specialButtonEvolution.style.pointerEvents = "none";
+  specialButtonEvolution.style.visibility = "hidden";
+  specialButtonEvolution.style.pointerEvents = "none";
 }
