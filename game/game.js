@@ -13,11 +13,16 @@ let pontosParaAparecer = 10;
 let pontosEvolution = 50;
 let pontosTranscend = 1000;
 
-audio.volume = 0.5;
+audio.volume = 0.2;
+
+function atualizarScore() {
+  document.getElementById("score").innerText = contador;
+}
+
 
 function coletar() {
   contador = contador + 1 + (multiplicador * transcender);
-  document.getElementById("score").innerText = contador;
+  atualizarScore()
 
   if (contador >= pontosParaAparecer) {
     specialButton.style.visibility = "visible";
@@ -37,35 +42,60 @@ function coletar() {
 
 function primeiroUp() {
 
+  audio.currentTime = 0;
   audio.play();
 
   multiplicador++;
   contador = contador - pontosParaAparecer;
-  document.getElementById("score").innerText = contador;
+  atualizarScore()
 
   pontosParaAparecer = Math.ceil(pontosParaAparecer * 1.5);
   specialButton.style.visibility = "hidden";
   specialButton.style.pointerEvents = "none";
+
+  if (contador < pontosTranscend) {
+    specialButtonTranscend.style.visibility = "hidden";
+    specialButtonTranscend.style.pointerEvents = "none";
+  }
+
+  if (contador < pontosEvolution) {
+    specialButtonEvolution.style.visibility = "hidden";
+    specialButtonEvolution.style.pointerEvents = "none";
+  }
 }
 
 function segundoUp() {
 
+  audio.currentTime = 0;
   audio.play();
 
   transcender = transcender + 2;
   contador = contador - Math.floor(pontosTranscend / 2);
-  document.getElementById("score").innerText = contador;
+  atualizarScore()
 
   pontosTranscend = Math.ceil(pontosTranscend * 1.5);
   specialButtonTranscend.style.visibility = "hidden";
   specialButtonTranscend.style.pointerEvents = "none";
+
+  if (contador < pontosParaAparecer) {
+    specialButton.style.visibility = "hidden";
+    specialButton.style.pointerEvents = "none";
+  }
+
+  if (contador < pontosEvolution) {
+    specialButtonEvolution.style.visibility = "hidden";
+    specialButtonEvolution.style.pointerEvents = "none";
+  }
 }
 
 function primeiraEv() {
 
+  audio.currentTime = 0;
   audio.play();
 
   acrescentador++;
+  contador = contador - Math.floor(pontosEvolution / 2);
+  atualizarScore()
   pontosEvolution = Math.ceil(pontosEvolution * 1.75);
 
   if (intervalo === null) {
@@ -77,4 +107,14 @@ function primeiraEv() {
 
   specialButtonEvolution.style.visibility = "hidden";
   specialButtonEvolution.style.pointerEvents = "none";
+
+  if (contador < pontosParaAparecer) {
+    specialButton.style.visibility = "hidden";
+    specialButton.style.pointerEvents = "none";
+  }
+
+  if (contador < pontosTranscend) {
+    specialButtonTranscend.style.visibility = "hidden";
+    specialButtonTranscend.style.pointerEvents = "none";
+  }
 }

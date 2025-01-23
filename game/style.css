@@ -1,34 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+
+body {
+    background-color: black
+}
+
 #titulo {
+    user-select: none;
+    color: white;
     text-align: center;
+    font-family: "Tiny5", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #score {
+    user-select: none;
+    color: white;
     text-align: center;
+    font-family: "Tiny5", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 75vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
 }
 
 #evolve {
-  padding: 10px 20px;
-  border-radius: 30px;
-  background-color: black;
-  color: white;
-  border: black;
+    user-select: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border-style: groove;
+    background-color: white;
+    color: black;
+    border: white;
+    font-family: "Tiny5", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #evolve:hover {
-  background-color: #1A1A2A;
-  color: white;
+    background-color: #1A1A2A;
+    color: white;
 }
 
 #evolve:active {
-  padding: 12px 22px
+    padding: 12px 22px
 }
 
 .upgrades {
@@ -43,14 +64,19 @@
 }
 
 #primeiroUp, #segundoUp {
+    user-select: none;
     position: fixed;
     visibility: hidden;
     pointer-events: none;
     padding: 10px 20px;
     border-radius: 30px;
-    background-color: white;
-    color: black;
-    border-color: black;
+    border-style: groove;
+    background-color: black;
+    color: white;
+    border-color: white;
+    font-family: "Tiny5", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .evolutions {
@@ -65,12 +91,17 @@
 }
 
 #primeiraEv {
+    user-select: none;
     position: fixed;
     visibility: hidden;
     pointer-events: none;
     padding: 10px 20px;
     border-radius: 30px;
-    background-color: white;
-    color: black;
-    border-color: black;
+    border-style: groove;
+    background-color: black;
+    color: white;
+    border-color: white;
+    font-family: "Tiny5", serif;
+    font-weight: 400;
+    font-style: normal;
 }
