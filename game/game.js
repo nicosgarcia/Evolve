@@ -15,6 +15,13 @@ let pontosTranscend = 1000;
 
 audio.volume = 0.2;
 
+function checarAparicao(animacao, pontos) {
+
+    if (contador >= pontos) {
+        document.getElementById(animacao).style.visibility = "visible";
+    }
+}
+
 function atualizarScore() {
   document.getElementById("score").innerText = contador;
 }
@@ -38,6 +45,8 @@ function coletar() {
     specialButtonTranscend.style.visibility = "visible";
     specialButtonTranscend.style.pointerEvents = "auto";
   }
+
+  checarAparicao("egg-moving", 20)
 }
 
 function primeiroUp() {
