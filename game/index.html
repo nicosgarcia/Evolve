@@ -10,30 +10,41 @@
 <body>
 
     <audio Id="click" src="./sounds/clickSound.flac"></audio>
+    <audio Id="titleMusic" src="./sounds/intro-song.mp3" loop></audio>
+    <audio Id="gameMusic" src="./sounds/ev-song.mp3" loop></audio>
+    <audio Id="coletarSound" src="./sounds/coletar-sound.wav"></audio>
 
-    <div class="cabeca">
-        <h1 id="titulo">Time</h1>
+    <section Id="menu">
+        <div class="menu-background">
+            <h1 id="title">Ev</h1>
+            <button id="play" onclick="startGame()">Start</button>
+        </div>
+    </section>
 
-        <h2 id="score">0</h2>
-    </div>
+    <section Id="game" class="gamePosition">
+        <div class="cabeca">
+            <h1 id="titulo">Time</h1>
 
-    <div class="animacoes">
-        <img id="egg-moving" src="./pixelart/egg.gif" alt="egg moving">
-    </div>
+            <h2 id="score">0</h2>
+        </div>
 
-    <div class="container">
-        <button Id="evolve" onclick="coletar()">Wait</button>
-    </div>
+        <div class="animacoes">
+            <img id="egg-moving" src="./pixelart/egg.gif" alt="egg moving">
+        </div>
 
-    <div class="upgrades">
-        <button Id="primeiroUp" onclick="primeiroUp()">+1</button>
-        <button Id="segundoUp" onclick="segundoUp()">Transcend</button>
-    </div>
+        <div class="container">
+            <button Id="evolve" onclick="coletar()">Wait</button>
+        </div>
 
-    <div class="evolutions">
-        <button Id="primeiraEv" onclick="primeiraEv()">Evolve</button>
-    </div>
+        <div class="upgrades">
+            <button Id="primeiroUp" onclick="primeiroUp()">+1</button>
+            <button Id="segundoUp" onclick="segundoUp()">Transcend</button>
+        </div>
 
+        <div class="evolutions">
+            <button Id="primeiraEv" onclick="primeiraEv()">Evolve</button>
+        </div>
+    </section>
 
     <script src="game.js"></script>
 

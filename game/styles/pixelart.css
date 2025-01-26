@@ -12,5 +12,31 @@
     user-select: none;
     visibility: hidden;
     position: absolute;
-    top: 80px;
+    top: 100px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.title-animation {
+    animation: fadeIn 5s ease-in-out forwards;
+}
+
+.game-fadeOut {
+    animation: fadeOut 3s ease-in-out forwards;
 }

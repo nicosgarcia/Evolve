@@ -4,6 +4,59 @@ body {
     background-color: black
 }
 
+.menu-background {
+    margin: 0;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    width: 100%;
+    height: 98vh;
+}
+
+#title {
+    user-select: none;
+    color: white;
+    position: relative;
+    top: -300px;
+    text-align: center;
+    font-family: "Tiny5", serif;
+    font-weight: 400;
+    font-size: 60px;
+    font-style: normal;
+}
+
+#play {
+    user-select: none;
+    width: 100px;
+    align-self: center;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border-style: groove;
+    background-color: white;
+    color: black;
+    border: white;
+    font-family: "Tiny5", serif;
+    font-weight: 400;
+    font-style: normal
+    border: 2px solid black;
+}
+
+#play:hover {
+    background-color: #1A1A2A;
+    border-color: white;
+    color: white;
+}
+
+#game {
+    visible: hidden;
+}
+
+.gamePosition {
+    position: fixed;
+}
+
 #titulo {
     user-select: none;
     color: white;
