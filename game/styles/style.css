@@ -57,13 +57,19 @@ body {
     position: fixed;
 }
 
-#titulo {
+#titulo, #certeza, .pontos {
     user-select: none;
     color: white;
     text-align: center;
     font-family: "Tiny5", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.pontos {
+    position: absolute;
+    animation: subir 1s ease-in-out;
+    top: 45%;
 }
 
 #score {
@@ -79,11 +85,12 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 75vh;
 }
 
-#evolve {
+#evolve, #primeiroEst, #feed {
     user-select: none;
     padding: 10px 20px;
     border-radius: 30px;
@@ -96,9 +103,34 @@ body {
     font-style: normal;
 }
 
+#primeiroEst, #feed {
+    visibility: hidden;
+    user-select: none;
+    border: 2px solid black;
+    position: absolute;
+    padding: 10px 40px;
+    bottom: -50px;
+}
+
+#certeza {
+    position: absolute;
+    bottom: -90px;
+    opacity: 0;
+}
+
 #evolve:hover {
     background-color: #1A1A2A;
     color: white;
+}
+
+#primeiroEst:hover, #feed:hover {
+    border-color: white;
+    background-color: #1A1A2A;
+    color: white;
+}
+
+#primeiroEst:hover + #certeza {
+    opacity: 0.3;
 }
 
 #evolve:active {

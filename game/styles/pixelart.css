@@ -33,6 +33,18 @@
     }
 }
 
+@keyframes subir {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
 .title-animation {
     animation: fadeIn 5s ease-in-out forwards;
 }
