@@ -9,6 +9,7 @@ let intervalo = null;
 // SOUNDS
 const audio = document.getElementById("click");
 const introSongAudio = document.getElementById("titleMusic");
+const eggSong = document.getElementById("eggMusic");
 const coletarSoundEffect = document.getElementById("coletarSound");
 const evSoundAudio = document.getElementById("gameMusic");
 
@@ -19,6 +20,10 @@ const specialButtonTranscend = document.getElementById("segundoUp");
 const specialButtonEvolution = document.getElementById("primeiraEv");
 const specialButtonPrimeiroEst = document.getElementById("primeiroEst");
 const specialButtonFeed = document.getElementById("feed");
+
+// GIFS AND IMAGES
+const gifImg = document.getElementById("egg-moving");
+const gifImgHatch = document.getElementById("egg-hatch");
 
 const menu = document.getElementById("menu");
 const game = document.getElementById("game");
@@ -230,41 +235,55 @@ function feed() {
 
     feedCount++;
 
+    contador = contador - FEED;
+
+    atualizarScore();
+    FEED = FEED * 2;
+
+    specialButtonFeed.style.visibility = "hidden";
+    specialButtonFeed.style.pointerEvents = "none";
+
+    checarCompra();
+
     switch(true) {
-        case feedCount == 0:
-            contador = contador - FEED;
-            atualizarScore();
-            FEED = FEED * 2;
 
-
-            specialButtonFeed.style.visibility = "hidden";
-            specialButtonFeed.style.pointerEvents = "none";
-
-            checarCompra();
+        case feedCount == 3:
+            gifImg.src = "./pixelart/eggcrack2.gif";
 
             break;
 
-        case feedCount == 1:
-            contador = contador - FEED;
-            atualizarScore();
-            FEED = FEED * 2;
-
-            specialButtonFeed.style.visibility = "hidden";
-            specialButtonFeed.style.pointerEvents = "none";
-
-            checarCompra();
+        case feedCount == 5:
+            gifImg.src = "./pixelart/eggcrack3.gif";
 
             break;
 
-        case feedCount == 2:
-            contador = contador - FEED;
-            atualizarScore();
-            FEED = FEED * 2;
+        case feedCount == 7:
+            gifImg.src = "./pixelart/eggcrack4.gif";
 
-            specialButtonFeed.style.visibility = "visible";
-            specialButtonFeed.style.pointerEvents = "none";
+            break;
 
-            checarCompra();
+        case feedCount == 9:
+            gifImg.src = "./pixelart/eggcrack5.gif";
+
+            setTimeout(() => {
+                gifImg.src = "./pixelart/eggcrack6.png";
+            }, 4800)
+
+            break;
+
+        case feedCount == 10:
+            evSoundAudio.pause();
+
+            textBubble("Saudações, você que me acorda de meu sono profundo? se sim, eu lhe presenteio com a minha mais sincera gratidão. Agora lambe minha pica.")
+
+            eggSong.play();
+
+            gifImgHatch.style.visibility = "visible";
+            gifImg.style.visibility = "hidden";
+
+            setTimeout(() => {
+                gifImgHatch.src = "./pixelart/eggcrack6.png";
+            }, 2000)
 
             break;
     }

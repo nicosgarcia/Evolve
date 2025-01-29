@@ -2,17 +2,20 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: purple;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#egg-moving {
+#egg-moving, #egg-hatch {
     user-select: none;
     visibility: hidden;
     position: absolute;
     top: 100px;
+}
+
+#egg-hatch {
+    top: -30px;
 }
 
 @keyframes fadeIn {
@@ -51,4 +54,66 @@
 
 .game-fadeOut {
     animation: fadeOut 3s ease-in-out forwards;
+}
+
+#caixaDeTexto {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.textBubble {
+    position: absolute;
+    width: 0%;
+    height: 0px;
+    bottom: 200px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    animation: textBubbleAparecer 5s ease-in-out 1;
+}
+
+.paragrafoContent {
+    margin-left: 15px;
+    margin-right: 15px;
+    font-family: "Tiny5", serif;
+    font-weight: 400;
+    font-style: normal;
+    animation: escrever 2s steps(30) forwards 1;
+}
+
+@keyframes textBubbleAparecer {
+    0% {
+        opacity: 0;
+        width: 1%;
+        height: 1px;
+    }
+    50% {
+        opacity: 1;
+        width: 1%;
+        height: 100px;
+    }
+    60% {
+        width: 1%;
+        height: 100px;
+    }
+    100% {
+        width: 80%;
+        height: 100px;
+    }
+}
+
+@keyframes escrever {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

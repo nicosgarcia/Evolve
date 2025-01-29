@@ -11,9 +11,11 @@
 
     <section class="audios">
         <audio Id="click" src="./sounds/clickSound.flac"></audio>
+        <audio Id="coletarSound" src="./sounds/coletar-sound.wav"></audio>
+
         <audio Id="titleMusic" src="./sounds/intro-song.mp3" loop></audio>
         <audio Id="gameMusic" src="./sounds/ev-song.mp3" loop></audio>
-        <audio Id="coletarSound" src="./sounds/coletar-sound.wav"></audio>
+        <audio Id="eggMusic" src="./sounds/eggsong.mp3" loop></audio>
     </section>
 
     <section Id="menu">
@@ -30,8 +32,11 @@
             <h2 id="score">0</h2>
         </div>
 
+        <div Id="caixaDeTexto"></div>
+
         <div class="animacoes">
             <img id="egg-moving" src="./pixelart/egg.gif" alt="egg moving">
+            <img id="egg-hatch" src="./pixelart/eggcrack7.gif" alt="egg hatching">
         </div>
 
         <div Id="container" class="container">
@@ -52,6 +57,7 @@
 
     </section>
 
+    <script src="game_2.js"></script>
     <script src="game.js"></script>
 
 </body>
