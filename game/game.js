@@ -1,6 +1,6 @@
 // VARIAVEIS
 let contagemContador = 1;
-let contador = 0;
+let contador = 9999;
 let multiplicador = 0;
 let transcender = 1;
 let acrescentador = 0;
@@ -22,6 +22,8 @@ const specialButtonPrimeiroEst = document.getElementById("primeiroEst");
 const specialButtonFeed = document.getElementById("feed");
 
 // GIFS AND IMAGES
+const guardiaoTempo = document.getElementById("animacaoGuardiao");
+const guardiaoIdle = document.getElementById("guardiaoIdle");
 const gifImg = document.getElementById("egg-moving");
 const gifImgHatch = document.getElementById("egg-hatch");
 
@@ -29,6 +31,7 @@ const menu = document.getElementById("menu");
 const game = document.getElementById("game");
 
 // PONTOS PARA APARECER OS BOTÕES
+let songCheck = 0;
 let pontosParaAparecer = 10;
 let pontosEvolution = 50;
 let pontosPrimeiroEst = 100;
@@ -38,7 +41,7 @@ let pontosTranscend = 1000;
 
 let feedCheck = 0;
 let FEED = 150;
-let feedCount = 0;
+let feedCount = 9;
 
 // CÓDIGO
 
@@ -63,7 +66,10 @@ function startGame() {
 }
 
 game.onanimationend = function() {
-    evSoundAudio.play()
+    if (songCheck == 0) {
+        evSoundAudio.play();
+    }
+    songCheck = 1;
 }
 
 function checarAparicao(animacao, pontos) {
@@ -272,9 +278,10 @@ function feed() {
             break;
 
         case feedCount == 10:
-            evSoundAudio.pause();
 
-            textBubble("Saudações, você que me acorda de meu sono profundo? se sim, eu lhe presenteio com a minha mais sincera gratidão. Agora lambe minha pica.")
+            textBubble(dialogo1, 1)
+
+            evSoundAudio.pause();
 
             eggSong.play();
 
@@ -282,8 +289,8 @@ function feed() {
             gifImg.style.visibility = "hidden";
 
             setTimeout(() => {
-                gifImgHatch.src = "./pixelart/eggcrack6.png";
-            }, 2000)
+                gifImgHatch.src = "./pixelart/eggcrack9.png";
+            }, 1795)
 
             break;
     }

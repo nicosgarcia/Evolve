@@ -1,0 +1,1 @@
+dialogo1 = ["Oi", "Ola", "Hello"];
