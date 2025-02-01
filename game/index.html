@@ -9,14 +9,16 @@
 </head>
 <body>
     <div Id="guardiaoTempo">
-        <img src="" Id="animacaoGuardiao" alt="Guardião do Tempo aparecendo">
-        <img src="./pixelart/timeGuardian.gif" Id="guardiaoIdle" alt="Guardian Idle">
+        <img src="" Id="animacaoGuardiao">
+        <img src="./pixelart/timeGuardian.gif" Id="guardiaoIdle">
     </div>
 
     <section class="audios">
         <audio Id="click" src="./sounds/clickSound.flac"></audio>
         <audio Id="coletarSound" src="./sounds/coletar-sound.wav"></audio>
-
+        <audio Id="passarDialogo" src="./sounds/passarDialogo.wav"></audio>
+        <audio Id="portal" src="./sounds/portal.wav"></audio>
+        <audio Id="guardianSong" src="./sounds/timeGuardianSong.mp3" loop></audio>
         <audio Id="titleMusic" src="./sounds/intro-song.mp3" loop></audio>
         <audio Id="gameMusic" src="./sounds/ev-song.mp3" loop></audio>
         <audio Id="eggMusic" src="./sounds/eggsong.mp3" loop></audio>
@@ -29,6 +31,8 @@
         </div>
     </section>
 
+    <div Id="caixaDeTexto"></div>
+
     <section Id="game" class="gamePosition">
         <div class="cabeca">
             <h1 id="titulo">Time</h1>
@@ -36,11 +40,13 @@
             <h2 id="score">0</h2>
         </div>
 
-        <div Id="caixaDeTexto"></div>
+
 
         <div class="animacoes">
-            <img id="egg-moving" src="./pixelart/egg.gif" alt="egg moving">
-            <img id="egg-hatch" src="./pixelart/eggcrack7.gif" alt="egg hatching">
+            <img id="egg-moving" src="./pixelart/egg.gif">
+            <img id="egg-stop" src="./pixelart/eggcrack6.png">
+            <img id="egg-hatch" src="./pixelart/eggcrack7.gif">
+            <img id="egg-idle" src="./pixelart/eggcrack9.png">
         </div>
 
         <div Id="container" class="container">
@@ -60,6 +66,8 @@
         </div>
 
     </section>
+
+
 
     <script src="dialogos.js"></script>
     <script src="game_2.js"></script>

@@ -1,9 +1,10 @@
 // VARIAVEIS
 let contagemContador = 1;
-let contador = 9999;
+let contador = 0;
 let multiplicador = 0;
+let multiEvolve = 1;
 let transcender = 1;
-let acrescentador = 0;
+let acrescentador = 1;
 let intervalo = null;
 
 // SOUNDS
@@ -12,6 +13,9 @@ const introSongAudio = document.getElementById("titleMusic");
 const eggSong = document.getElementById("eggMusic");
 const coletarSoundEffect = document.getElementById("coletarSound");
 const evSoundAudio = document.getElementById("gameMusic");
+const guardianSong = document.getElementById("guardianSong");
+const passarDialogo = document.getElementById("passarDialogo");
+const portal = document.getElementById("portal");
 
 // BOTÕES
 const specialButtonWait = document.getElementById("evolve");
@@ -26,6 +30,8 @@ const guardiaoTempo = document.getElementById("animacaoGuardiao");
 const guardiaoIdle = document.getElementById("guardiaoIdle");
 const gifImg = document.getElementById("egg-moving");
 const gifImgHatch = document.getElementById("egg-hatch");
+const eggStoping = document.getElementById("egg-stop");
+const eggIdle = document.getElementById("egg-idle");
 
 const menu = document.getElementById("menu");
 const game = document.getElementById("game");
@@ -41,7 +47,7 @@ let pontosTranscend = 1000;
 
 let feedCheck = 0;
 let FEED = 150;
-let feedCount = 9;
+let feedCount = 0;
 
 // CÓDIGO
 
@@ -61,7 +67,7 @@ function startGame() {
         menu.remove()
         game.style.visibility = "visible";
         game.classList.remove("gamePosition");
-        game.classList.add("game-fadeOut")
+        game.classList.add("game-fadeOut");
     }
 }
 
@@ -118,7 +124,7 @@ function coletar() {
     coletarSoundEffect.currentTime = 0;
     coletarSoundEffect.play();
 
-    contador = contador + 1 + (multiplicador * transcender);
+    contador = contador + contagemContador;
     atualizarScore()
 
     const divContainer = document.getElementById("container")
@@ -152,7 +158,7 @@ function coletar() {
         specialButtonPrimeiroEst.style.pointerEvents = "auto";
     }
 
-    if (contador >= FEED && feedCheck == 1) {
+    if (contador >= FEED && feedCheck >= 1) {
         specialButtonFeed.style.visibility = "visible";
         specialButtonFeed.style.pointerEvents = "auto";
   }
@@ -181,9 +187,9 @@ function segundoUp() {
     audio.currentTime = 0;
     audio.play();
 
-    transcender = transcender + 2;
+    transcender = 2;
     contador = contador - Math.floor(pontosTranscend / 2);
-    contagemContador = contagemContador * 2;
+    contagemContador = Math.floor(contagemContador * 1.5) ;
     atualizarScore()
 
     pontosTranscend = Math.ceil(pontosTranscend * 1.5);
@@ -199,7 +205,7 @@ function primeiraEv() {
     audio.currentTime = 0;
     audio.play();
 
-    acrescentador++;
+    acrescentador = 2 * acrescentador;
     contador = contador - Math.floor(pontosEvolution / 2);
     atualizarScore()
     pontosEvolution = Math.ceil(pontosEvolution * 1.75);
@@ -272,8 +278,9 @@ function feed() {
             gifImg.src = "./pixelart/eggcrack5.gif";
 
             setTimeout(() => {
-                gifImg.src = "./pixelart/eggcrack6.png";
-            }, 4800)
+                eggStoping.style.visibility = "visible";
+                gifImg.style.visibility = "hidden";
+            }, 4800);
 
             break;
 
@@ -286,11 +293,12 @@ function feed() {
             eggSong.play();
 
             gifImgHatch.style.visibility = "visible";
-            gifImg.style.visibility = "hidden";
+            eggStoping.style.visibility = "hidden";
 
             setTimeout(() => {
-                gifImgHatch.src = "./pixelart/eggcrack9.png";
-            }, 1795)
+                gifImgHatch.style.visibility = "hidden";
+                eggIdle.style.visibility = "visible";
+            }, 2300);
 
             break;
     }

@@ -7,11 +7,15 @@
     align-items: center;
 }
 
-#egg-moving, #egg-hatch {
+#egg-moving, #egg-hatch, #egg-idle, #egg-stop {
     user-select: none;
     visibility: hidden;
     position: absolute;
     top: 100px;
+}
+
+#egg-idle {
+    top: -30px;
 }
 
 #egg-hatch {
@@ -19,6 +23,15 @@
 }
 
 @keyframes fadeIn {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes disappear {
     0% {
         opacity: 1;
     }
@@ -52,12 +65,17 @@
     animation: fadeIn 5s ease-in-out forwards;
 }
 
+.disappear {
+    animation: fadeIn 0.1s ease-in-out forwards;
+}
+
 .game-fadeOut {
     animation: fadeOut 3s ease-in-out forwards;
 }
 
 #caixaDeTexto {
     display: flex;
+    z-index: -1;
     position: absolute;
     top: 0;
     left: 0;
@@ -77,10 +95,11 @@
     border-radius: 30px;
     cursor: pointer;
     animation: textBubbleAparecer 5s ease-in-out 1;
-    z-index: 9999;
+    z-index: -1;
 }
 
 .paragrafoContent {
+    user-select: none;
     margin-left: 15px;
     margin-right: 15px;
     font-family: "Tiny5", serif;
