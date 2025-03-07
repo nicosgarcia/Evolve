@@ -11,15 +11,14 @@
     user-select: none;
     visibility: hidden;
     position: absolute;
+}
+
+#egg-idle, #egg-stop, #egg-hatch {
+    top: -30px;
+}
+
+#egg-moving {
     top: 100px;
-}
-
-#egg-idle {
-    top: -30px;
-}
-
-#egg-hatch {
-    top: -30px;
 }
 
 @keyframes fadeIn {

@@ -1,5 +1,5 @@
 // VARIAVEIS
-let contagemContador = 1;
+let contagemContador = 99999;
 let contador = 0;
 let multiplicador = 0;
 let multiEvolve = 1;
@@ -260,22 +260,22 @@ function feed() {
     switch(true) {
 
         case feedCount == 3:
-            gifImg.src = "./pixelart/eggcrack2.gif";
+            gifImg.src = "/pixelart/eggcrack2.gif";
 
             break;
 
         case feedCount == 5:
-            gifImg.src = "./pixelart/eggcrack3.gif";
+            gifImg.src = "/pixelart/eggcrack3.gif";
 
             break;
 
         case feedCount == 7:
-            gifImg.src = "./pixelart/eggcrack4.gif";
+            gifImg.src = "/pixelart/eggcrack4.gif";
 
             break;
 
         case feedCount == 9:
-            gifImg.src = "./pixelart/eggcrack5.gif";
+            gifImg.src = "/pixelart/eggcrack5.gif";
 
             setTimeout(() => {
                 eggStoping.style.visibility = "visible";
