@@ -55,8 +55,17 @@ let hasUserInteracted = false; // Variável para rastrear interação do usuári
 audio.volume = 0.2;
 coletarSoundEffect.volume = 0.5;
 
-document.addEventListener("DOMContentLoaded", () => {
-    introSongAudio.play().catch(error => console.error("Erro ao reproduzir música de introdução:", error));
+// Função para reproduzir a música de introdução
+function introSong() {
+    if (!hasUserInteracted) {
+        introSongAudio.play().catch(error => console.error("Erro ao reproduzir música de introdução:", error));
+        hasUserInteracted = true; // Marcar que o usuário interagiu
+    }
+}
+
+// Adicionar evento de interação para reproduzir áudio
+document.addEventListener("click", () => {
+    introSong();
 });
 
 function startGame() {
@@ -72,7 +81,6 @@ function startGame() {
         game.classList.add("game-fadeOut");
     }
 }
-
 game.onanimationend = function() {
     if (songCheck == 0) {
         evSoundAudio.play();
