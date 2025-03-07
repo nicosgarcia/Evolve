@@ -55,7 +55,11 @@ let feedCount = 0;
 audio.volume = 0.2;
 coletarSoundEffect.volume = 0.5;
 
-introSongAudio.play();
+function introSong() {
+    introSongAudio.play();
+}
+
+introSong()
 
 function startGame() {
     introSongAudio.pause();
