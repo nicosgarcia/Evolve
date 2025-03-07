@@ -55,11 +55,24 @@ let feedCount = 0;
 audio.volume = 0.2;
 coletarSoundEffect.volume = 0.5;
 
+// Função para reproduzir a música de introdução
 function introSong() {
-    introSongAudio.play();
+    introSongAudio.play().catch(error => console.error("Erro ao reproduzir música de introdução:", error));
 }
 
-introSong()
+// Adicionar evento de interação para reproduzir áudio
+document.addEventListener("click", () => {
+    if (!introSongAudio.played) { // Verifica se a música já foi reproduzida
+        introSong();
+    }
+});
+
+// Adicionar evento de interação para reproduzir áudio ao pressionar uma tecla
+document.addEventListener("keydown", () => {
+    if (!introSongAudio.played) { // Verifica se a música já foi reproduzida
+        introSong();
+    }
+});
 
 function startGame() {
     introSongAudio.pause();
