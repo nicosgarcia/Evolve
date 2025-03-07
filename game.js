@@ -1,4 +1,4 @@
-// VARIAVEIS
+// VARIÁVEIS
 let contagemContador = 99999;
 let contador = 0;
 let multiplicador = 0;
@@ -44,38 +44,23 @@ let pontosPrimeiroEst = 100;
 let pontosTranscend = 1000;
 
 // FEED
-
 let feedCheck = 0;
 let FEED = 150;
 let feedCount = 0;
 
+// CONTROLE DE ÁUDIO
+let hasUserInteracted = false; // Variável para rastrear interação do usuário
+
 // CÓDIGO
-
-
 audio.volume = 0.2;
 coletarSoundEffect.volume = 0.5;
 
-// Função para reproduzir a música de introdução
-function introSong() {
+document.addEventListener("DOMContentLoaded", () => {
     introSongAudio.play().catch(error => console.error("Erro ao reproduzir música de introdução:", error));
-}
-
-// Adicionar evento de interação para reproduzir áudio
-document.addEventListener("click", () => {
-    if (!introSongAudio.played) { // Verifica se a música já foi reproduzida
-        introSong();
-    }
-});
-
-// Adicionar evento de interação para reproduzir áudio ao pressionar uma tecla
-document.addEventListener("keydown", () => {
-    if (!introSongAudio.played) { // Verifica se a música já foi reproduzida
-        introSong();
-    }
 });
 
 function startGame() {
-    introSongAudio.pause();
+    introSongAudio.pause(); // Pausar a música de introdução ao clicar em "Start"
     audio.play();
 
     menu.classList.add("title-animation");
@@ -96,7 +81,6 @@ game.onanimationend = function() {
 }
 
 function checarAparicao(animacao, pontos) {
-
     if (contador >= pontos) {
         document.getElementById(animacao).style.visibility = "visible";
     }
@@ -110,7 +94,6 @@ function atualizarScore() {
 }
 
 function checarCompra() {
-
   if (contador < pontosParaAparecer) {
     specialButton.style.visibility = "hidden";
     specialButton.style.pointerEvents = "none";
@@ -182,7 +165,6 @@ function coletar() {
 }
 
 function primeiroUp() {
-
     audio.currentTime = 0;
     audio.play();
 
@@ -196,11 +178,9 @@ function primeiroUp() {
     specialButton.style.pointerEvents = "none";
 
     checarCompra();
-
 }
 
 function segundoUp() {
-
     audio.currentTime = 0;
     audio.play();
 
@@ -214,11 +194,9 @@ function segundoUp() {
     specialButtonTranscend.style.pointerEvents = "none";
 
     checarCompra()
-
 }
 
 function primeiraEv() {
-
     audio.currentTime = 0;
     audio.play();
 
@@ -240,9 +218,7 @@ function primeiraEv() {
     checarCompra();
 }
 
-
 function primeiroEst() {
-
     audio.currentTime = 0;
     audio.play();
 
@@ -258,7 +234,6 @@ function primeiroEst() {
 }
 
 function feed() {
-
     audio.currentTime = 0;
     audio.play();
 
@@ -275,20 +250,16 @@ function feed() {
     checarCompra();
 
     switch(true) {
-
         case feedCount == 3:
             gifImg.src = "/pixelart/eggcrack2.gif";
-
             break;
 
         case feedCount == 5:
             gifImg.src = "/pixelart/eggcrack3.gif";
-
             break;
 
         case feedCount == 7:
             gifImg.src = "/pixelart/eggcrack4.gif";
-
             break;
 
         case feedCount == 9:
@@ -298,11 +269,9 @@ function feed() {
                 eggStoping.style.visibility = "visible";
                 gifImg.style.visibility = "hidden";
             }, 4800);
-
             break;
 
         case feedCount == 10:
-
             textBubble(dialogo1, 1)
 
             evSoundAudio.pause();
@@ -316,7 +285,6 @@ function feed() {
                 gifImgHatch.style.visibility = "hidden";
                 eggIdle.style.visibility = "visible";
             }, 2300);
-
             break;
     }
 }
