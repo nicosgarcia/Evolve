@@ -1,5 +1,5 @@
 // VARIÁVEIS
-let contagemContador = 99999;
+let contagemContador = 1;
 let contador = 0;
 let multiplicador = 0;
 let multiEvolve = 1;
