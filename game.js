@@ -48,28 +48,11 @@ let feedCheck = 0;
 let FEED = 150;
 let feedCount = 0;
 
-// CONTROLE DE ÁUDIO
-let hasUserInteracted = false; // Variável para rastrear interação do usuário
-
 // CÓDIGO
 audio.volume = 0.2;
 coletarSoundEffect.volume = 0.5;
 
-// Função para reproduzir a música de introdução
-function introSong() {
-    if (!hasUserInteracted) {
-        introSongAudio.play().catch(error => console.error("Erro ao reproduzir música de introdução:", error));
-        hasUserInteracted = true; // Marcar que o usuário interagiu
-    }
-}
-
-// Adicionar evento de interação para reproduzir áudio
-document.addEventListener("click", () => {
-    introSong();
-});
-
 function startGame() {
-    introSongAudio.pause(); // Pausar a música de introdução ao clicar em "Start"
     audio.play();
 
     menu.classList.add("title-animation");
